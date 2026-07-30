@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProfile, loginUser, logoutUser } from "../services/api";
+import { getMe, loginUser, logoutUser } from "../services/api";
 import toast from "react-hot-toast";
 
 const AuthContext = createContext();
@@ -18,8 +18,8 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      const { data } = await getProfile();
-      setUser(data.user);
+const { data } = await getMe();  
+    setUser(data.user);
     } catch (error) {
       localStorage.removeItem("token");
       setUser(null);

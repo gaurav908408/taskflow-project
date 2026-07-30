@@ -1,29 +1,20 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: "http://localhost:5000/api",
 });
 
-// Request Interceptor
-API.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+  return config;
+});
 
-// =======================
-// AUTH APIs
-// =======================
+// =================== AUTH ===================
 
 export const registerUser = (data) =>
   API.post("/auth/register", data);
@@ -31,15 +22,18 @@ export const registerUser = (data) =>
 export const loginUser = (data) =>
   API.post("/auth/login", data);
 
+export const getMe = () =>
+  API.get("/auth/me");
+
 export const logoutUser = () =>
   API.post("/auth/logout");
 
-export const getProfile = () =>
-  API.get("/auth/me");
+// ================= DASHBOARD =================
 
-// =======================
-// PROJECT APIs
-// =======================
+export const getDashboard = () =>
+  API.get("/dashboard");
+
+// ================= PROJECTS ==================
 
 export const getProjects = () =>
   API.get("/projects");
@@ -55,13 +49,10 @@ export const updateProject = (id, data) =>
 
 export const deleteProject = (id) =>
   API.delete(`/projects/${id}`);
+// ================= TASKS =================
 
-// =======================
-// TASK APIs
-// =======================
-
-export const getTasks = (params) =>
-  API.get("/tasks", { params });
+export const getTasks = () =>
+  API.get("/tasks");
 
 export const getTask = (id) =>
   API.get(`/tasks/${id}`);
@@ -74,12 +65,3 @@ export const updateTask = (id, data) =>
 
 export const deleteTask = (id) =>
   API.delete(`/tasks/${id}`);
-
-// =======================
-// DASHBOARD API
-// =======================
-
-export const getDashboard = () =>
-  API.get("/dashboard");
-
-export default API;
