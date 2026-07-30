@@ -75,32 +75,32 @@ const Tasks = () => {
   }
     return (
     <Layout>
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Tasks
+          Task Management
         </h1>
 
         <button
           onClick={handleCreateTask}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-lg"
+          className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-lg transition"
         >
-          + New Task
+          + Create Task
         </button>
       </div>
 
       {/* Search & Filters */}
-      <div className="bg-white shadow rounded-xl p-5 mb-8">
+      <div className="bg-white rounded-xl shadow-md p-5 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
           <input
             type="text"
-            placeholder="Search task..."
+            placeholder="Search Task..."
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
               setPage(1);
             }}
-            className="border rounded-lg p-3 outline-none focus:border-emerald-500"
+            className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
 
           <select
@@ -136,12 +136,12 @@ const Tasks = () => {
 
       {tasks.length === 0 ? (
         <div className="bg-white rounded-xl shadow-md p-10 text-center">
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-2xl font-bold text-gray-700">
             No Tasks Found
           </h2>
 
-          <p className="text-gray-500 mt-3">
-            Create your first task.
+          <p className="text-gray-500 mt-2">
+            Create your first task to get started.
           </p>
         </div>
       ) : (
@@ -157,7 +157,6 @@ const Tasks = () => {
             ))}
           </div>
 
-          {/* Pagination */}
           <div className="flex justify-center items-center gap-4 mt-10">
 
             <button
