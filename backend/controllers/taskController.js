@@ -247,7 +247,50 @@ const updateTask = async (req, res) => {
     });
   }
 };
+// ==========================================
+// Update Task Status (Kanban)
+// ==========================================
+const updateTaskStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
 
+    if (!["Todo", "In Progress", "Done"].includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid status",
+      });
+    }
+
+    const task = await Task.findOne({
+      _id: req.params.id,
+      userId: req.user._id,
+    });
+
+    if (!task) {
+      return res.status(404).json({
+        success: false,
+        message: "Task not found",
+      });
+    }
+
+    task.status = status;
+
+    await task.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Task status updated successfully",
+      task,
+    });
+  } catch (error) {
+    console.error("Update Status Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
 // ==========================================
 // Delete Task
 // ==========================================
@@ -286,5 +329,12 @@ module.exports = {
   getTasks,
   getTaskById,
   updateTask,
+  deleteTask,
+};module.exports = {
+  createTask,
+  getTasks,
+  getTaskById,
+  updateTask,
+  updateTaskStatus,
   deleteTask,
 };

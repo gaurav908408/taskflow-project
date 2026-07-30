@@ -27,7 +27,7 @@ export const loginUser = (data) =>
 export const getMe = () =>
   API.get("/auth/me");
 
-// JWT logout sirf frontend par token remove karega
+// JWT Logout (Frontend Only)
 export const logoutUser = () => Promise.resolve();
 
 // ================= DASHBOARD =================
@@ -65,6 +65,10 @@ export const createTask = (data) =>
 
 export const updateTask = (id, data) =>
   API.put(`/tasks/${id}`, data);
+
+// ⭐ Kanban Status Update
+export const updateTaskStatus = (id, status) =>
+  API.patch(`/tasks/${id}/status`, { status });
 
 export const deleteTask = (id) =>
   API.delete(`/tasks/${id}`);

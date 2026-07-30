@@ -10,6 +10,7 @@ const {
   getTasks,
   getTaskById,
   updateTask,
+  updateTaskStatus,
   deleteTask,
 } = require("../controllers/taskController");
 
@@ -28,6 +29,7 @@ router.get("/:id", getTaskById);
 // Update Task
 router.put("/:id", taskValidation, validate, updateTask);
 
+router.patch("/:id/status", updateTaskStatus);
 // Delete Task
 router.delete("/:id", deleteTask);
 

@@ -7,11 +7,16 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+
 import Projects from "./pages/Projects";
+import CreateProject from "./pages/CreateProject";
+import EditProject from "./pages/EditProject";
 import ProjectDetails from "./pages/ProjectDetails";
+
 import Tasks from "./pages/Tasks";
 import CreateTask from "./pages/CreateTask";
 import EditTask from "./pages/EditTask";
+
 import Kanban from "./pages/Kanban";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
@@ -20,10 +25,11 @@ function App() {
   return (
     <AuthProvider>
       <Routes>
+
         {/* Redirect */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Public */}
+        {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -43,6 +49,24 @@ function App() {
           element={
             <ProtectedRoute>
               <Projects />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/projects/create"
+          element={
+            <ProtectedRoute>
+              <CreateProject />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/projects/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditProject />
             </ProtectedRoute>
           }
         />
@@ -106,6 +130,7 @@ function App() {
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
+
       </Routes>
     </AuthProvider>
   );

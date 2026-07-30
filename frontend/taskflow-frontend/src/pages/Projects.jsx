@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 import ProjectCard from "../components/ProjectCard";
@@ -6,6 +7,8 @@ import { getProjects, deleteProject } from "../services/api";
 import toast from "react-hot-toast";
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -37,7 +40,7 @@ const Projects = () => {
   };
 
   const handleEdit = (project) => {
-    console.log(project);
+    navigate(`/projects/edit/${project._id}`);
   };
 
   if (loading) return <Loader />;
@@ -45,11 +48,10 @@ const Projects = () => {
   return (
     <Layout>
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">
-          Projects
-        </h1>
+        <h1 className="text-3xl font-bold">Projects</h1>
 
         <button
+          onClick={() => navigate("/projects/create")}
           className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg"
         >
           + New Project

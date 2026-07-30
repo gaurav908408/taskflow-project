@@ -20,10 +20,18 @@ const CreateTask = () => {
     projectId: "",
   });
 
+  // ==========================
+  // Load Projects
+  // ==========================
   const loadProjects = async () => {
     try {
       const { data } = await getProjects();
-      setProjects(data.projects);
+
+      if (data.success) {
+        setProjects(data.projects || []);
+      } else {
+        setProjects([]);
+      }
     } catch (error) {
       toast.error("Failed to load projects");
     } finally {
@@ -35,6 +43,9 @@ const CreateTask = () => {
     loadProjects();
   }, []);
 
+  // ==========================
+  // Handle Input
+  // ==========================
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -42,6 +53,9 @@ const CreateTask = () => {
     });
   };
 
+  // ==========================
+  // Submit Form
+  // ==========================
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -59,10 +73,13 @@ const CreateTask = () => {
     }
   };
 
-  if (loading) return <Loader />;
-    return (
+  if (loading) {
+    return <Loader />;
+  }
+
+  return (
     <Layout>
-      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8">
+      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
         <h1 className="text-3xl font-bold text-center text-emerald-700 mb-8">
           Create Task
         </h1>
@@ -93,7 +110,7 @@ const CreateTask = () => {
             name="projectId"
             value={formData.projectId}
             onChange={handleChange}
-            className="w-full border rounded-lg p-3 outline-none focus:border-emerald-500"
+            className="w-full border rounded-lg p-3"
             required
           >
             <option value="">Select Project</option>
