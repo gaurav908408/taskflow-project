@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
@@ -11,87 +12,34 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      style={{
-        height: "70px",
-        background: "#ffffff",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "0 30px",
-        borderBottom: "1px solid #e5e7eb",
-      }}
-    >
-      <h2
-        style={{
-          color: "#059669",
-          fontWeight: "700",
-        }}
-      >
-        TaskFlow
-      </h2>
+    <header className="h-16 bg-white border-b border-gray-200 shadow-sm flex items-center justify-between px-8">
+      <div>
+        <h2 className="text-2xl font-bold text-emerald-600">
+          TaskFlow
+        </h2>
+      </div>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-        }}
-      >
-        <Link
-          to="/dashboard"
-          style={{
-            textDecoration: "none",
-            color: "#374151",
-          }}
-        >
-          Dashboard
-        </Link>
+      <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2">
+          <FaUserCircle className="text-3xl text-emerald-600" />
 
-        <Link
-          to="/projects"
-          style={{
-            textDecoration: "none",
-            color: "#374151",
-          }}
-        >
-          Projects
-        </Link>
-
-        <Link
-          to="/tasks"
-          style={{
-            textDecoration: "none",
-            color: "#374151",
-          }}
-        >
-          Tasks
-        </Link>
-
-        <span
-          style={{
-            color: "#111827",
-            fontWeight: "600",
-          }}
-        >
-          {user?.name}
-        </span>
+          <div>
+            <p className="text-sm text-gray-500">Welcome</p>
+            <h3 className="font-semibold text-gray-800">
+              {user?.name || "User"}
+            </h3>
+          </div>
+        </div>
 
         <button
           onClick={handleLogout}
-          style={{
-            background: "#dc2626",
-            color: "#fff",
-            border: "none",
-            padding: "10px 18px",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
+          className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition"
         >
+          <FaSignOutAlt />
           Logout
         </button>
       </div>
-    </nav>
+    </header>
   );
 };
 
