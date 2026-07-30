@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import {
   FaFolderOpen,
@@ -9,39 +10,94 @@ import {
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 import StatCard from "../components/StatCard";
-import { getDashboard } from "../services/api";
+import { getDashboard, getMe } from "../services/api";
 
 const Dashboard = () => {
   const [dashboard, setDashboard] = useState(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Dashboard Data
   const loadDashboard = async () => {
     try {
       const { data } = await getDashboard();
-
       setDashboard(data.dashboard);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
+    }
+  };
+
+  // Logged-in User
+  const loadUser = async () => {
+    try {
+      const { data } = await getMe();
+      setUser(data.user);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    loadDashboard();
+    const loadData = async () => {
+      await Promise.all([loadDashboard(), loadUser()]);
+      setLoading(false);
+    };
+
+    loadData();
   }, []);
 
   if (loading) {
     return <Loader />;
   }
 
+  // Greeting
+  const hour = new Date().getHours();
+
+  let greeting = "Good Evening";
+
+  if (hour < 12) {
+    greeting = "Good Morning";
+  } else if (hour < 18) {
+    greeting = "Good Afternoon";
+  }
+
   return (
     <Layout>
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">
-        Dashboard
-      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      {/* Welcome Section */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+
+        <div>
+          <h1 className="text-4xl font-bold text-gray-800">
+            👋 {greeting}, {user?.name || "User"}!
+          </h1>
+
+          <p className="text-gray-500 mt-3 text-lg">
+            Welcome back to TaskFlow. Manage your projects and complete your
+            tasks efficiently.
+          </p>
+        </div>
+
+        <div className="mt-5 md:mt-0 text-right bg-white shadow-md rounded-xl px-6 py-4">
+          <p className="text-sm text-gray-500">
+            Today's Date
+          </p>
+
+          <h2 className="text-xl font-bold text-emerald-600 mt-1">
+            {new Date().toLocaleDateString("en-GB", {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </h2>
+        </div>
+
+      </div>
+
+      {/* Dashboard Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+
         <StatCard
           title="Total Projects"
           value={dashboard?.totalProjects || 0}
@@ -69,7 +125,9 @@ const Dashboard = () => {
           icon={<FaClock />}
           color="bg-red-500"
         />
+
       </div>
+
     </Layout>
   );
 };

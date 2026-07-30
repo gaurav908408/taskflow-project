@@ -5,12 +5,16 @@ const getDashboard = async (req, res) => {
   try {
     const userId = req.user._id;
 
+    // ==========================
     // Project Stats
+    // ==========================
     const totalProjects = await Project.countDocuments({
       userId,
     });
 
+    // ==========================
     // Task Stats
+    // ==========================
     const totalTasks = await Task.countDocuments({
       userId,
     });
@@ -18,6 +22,13 @@ const getDashboard = async (req, res) => {
     const completedTasks = await Task.countDocuments({
       userId,
       status: "Done",
+    });
+
+    const pendingTasks = await Task.countDocuments({
+      userId,
+      status: {
+        $in: ["Todo", "In Progress"],
+      },
     });
 
     const inProgressTasks = await Task.countDocuments({
@@ -41,14 +52,18 @@ const getDashboard = async (req, res) => {
       status: { $ne: "Done" },
     });
 
+    // ==========================
     // Recent Projects
+    // ==========================
     const recentProjects = await Project.find({
       userId,
     })
       .sort({ createdAt: -1 })
       .limit(5);
 
+    // ==========================
     // Recent Tasks
+    // ==========================
     const recentTasks = await Task.find({
       userId,
     })
@@ -62,6 +77,7 @@ const getDashboard = async (req, res) => {
         totalProjects,
         totalTasks,
         completedTasks,
+        pendingTasks,
         inProgressTasks,
         todoTasks,
         highPriorityTasks,
