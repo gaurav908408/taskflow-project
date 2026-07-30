@@ -4,6 +4,8 @@ const API = axios.create({
   baseURL: "http://localhost:5000/api",
 });
 
+// ================= TOKEN =================
+
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
@@ -14,7 +16,7 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// =================== AUTH ===================
+// ================= AUTH =================
 
 export const registerUser = (data) =>
   API.post("/auth/register", data);
@@ -25,15 +27,15 @@ export const loginUser = (data) =>
 export const getMe = () =>
   API.get("/auth/me");
 
-export const logoutUser = () =>
-  API.post("/auth/logout");
+// JWT logout sirf frontend par token remove karega
+export const logoutUser = () => Promise.resolve();
 
 // ================= DASHBOARD =================
 
 export const getDashboard = () =>
   API.get("/dashboard");
 
-// ================= PROJECTS ==================
+// ================= PROJECTS =================
 
 export const getProjects = () =>
   API.get("/projects");
@@ -49,10 +51,11 @@ export const updateProject = (id, data) =>
 
 export const deleteProject = (id) =>
   API.delete(`/projects/${id}`);
+
 // ================= TASKS =================
 
-export const getTasks = () =>
-  API.get("/tasks");
+export const getTasks = (params = {}) =>
+  API.get("/tasks", { params });
 
 export const getTask = (id) =>
   API.get(`/tasks/${id}`);
@@ -65,3 +68,5 @@ export const updateTask = (id, data) =>
 
 export const deleteTask = (id) =>
   API.delete(`/tasks/${id}`);
+
+export default API;

@@ -10,6 +10,8 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 import Tasks from "./pages/Tasks";
+import CreateTask from "./pages/CreateTask";
+import EditTask from "./pages/EditTask";
 import Kanban from "./pages/Kanban";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
@@ -21,11 +23,11 @@ function App() {
         {/* Redirect */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Public Routes */}
+        {/* Public */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected Routes */}
+        {/* Dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -35,6 +37,7 @@ function App() {
           }
         />
 
+        {/* Projects */}
         <Route
           path="/projects"
           element={
@@ -53,6 +56,7 @@ function App() {
           }
         />
 
+        {/* Tasks */}
         <Route
           path="/tasks"
           element={
@@ -63,6 +67,25 @@ function App() {
         />
 
         <Route
+          path="/tasks/create"
+          element={
+            <ProtectedRoute>
+              <CreateTask />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/tasks/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditTask />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Kanban */}
+        <Route
           path="/kanban"
           element={
             <ProtectedRoute>
@@ -71,6 +94,7 @@ function App() {
           }
         />
 
+        {/* Profile */}
         <Route
           path="/profile"
           element={
