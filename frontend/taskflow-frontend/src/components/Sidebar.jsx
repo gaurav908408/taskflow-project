@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+
   const menus = [
     {
       name: "Dashboard",
@@ -37,8 +38,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     },
   ];
 
+
   return (
     <>
+
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div
@@ -46,6 +49,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           onClick={() => setSidebarOpen(false)}
         />
       )}
+
 
       {/* Sidebar */}
       <aside
@@ -69,14 +73,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           }
         `}
       >
+
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b">
+        <div className="flex items-center justify-between px-5 py-5 border-b">
 
           <h1 className="text-2xl font-bold text-emerald-600">
             TaskFlow
           </h1>
 
-          {/* Close Button */}
           <button
             className="md:hidden text-xl"
             onClick={() => setSidebarOpen(false)}
@@ -86,35 +90,51 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
         </div>
 
+
         {/* Menu */}
-        <nav className="mt-5">
+        <nav className="mt-4 space-y-1">
 
           {menus.map((menu) => (
+
             <NavLink
               key={menu.path}
               to={menu.path}
               onClick={() => setSidebarOpen(false)}
+
               className={({ isActive }) =>
-                `flex items-center gap-3 px-6 py-4 transition-all ${
+                `
+                flex items-center gap-4
+                px-5
+                py-3
+                transition-all
+                ${
                   isActive
                     ? "bg-emerald-600 text-white"
                     : "text-gray-700 hover:bg-emerald-100 hover:text-emerald-700"
-                }`
+                }
+                `
               }
             >
-              <span className="text-lg">
+
+              <span className="text-lg flex items-center">
                 {menu.icon}
               </span>
+
 
               <span className="font-medium">
                 {menu.name}
               </span>
 
+
             </NavLink>
+
           ))}
 
         </nav>
+
+
       </aside>
+
     </>
   );
 };
