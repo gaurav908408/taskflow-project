@@ -20,8 +20,10 @@ const Layout = ({ children }) => {
         />
 
         {/* Main Content */}
-        <main className="flex-1 p-6 md:p-8 overflow-x-auto">
-          {children}
+        <main className="flex-1 md:ml-64 p-6 md:p-8 overflow-x-auto">
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
         </main>
 
       </div>
