@@ -27,6 +27,7 @@ const Profile = () => {
     return <Loader />;
   }
     return (
+    <center>
     <Layout>
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
 
@@ -88,6 +89,8 @@ const Profile = () => {
 
       </div>
     </Layout>
+    </center>
+
   );
 };
 
