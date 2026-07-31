@@ -66,10 +66,7 @@ const Kanban = () => {
     if (!task) return;
 
     try {
-      await updateTask(task._id, {
-        ...task,
-        status: destination.droppableId,
-      });
+      await updateTaskStatus(task._id, destination.droppableId);
 
       toast.success("Task Status Updated");
 
@@ -94,51 +91,53 @@ const Kanban = () => {
   if (loading) return <Loader />;
     return (
     <Layout>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Kanban Board
-          </h1>
+      <div className="w-full space-y-6">
+        <DragDropContext onDragEnd={onDragEnd}>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <h1 className="text-3xl font-bold text-gray-800">
+              Kanban Board
+            </h1>
 
-          <button
-            onClick={() => navigate("/tasks/create")}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-lg transition"
-          >
-            + Create Task
-          </button>
-        </div>
+            <button
+              onClick={() => navigate("/tasks/create")}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-xl shadow transition font-medium"
+            >
+              + Create Task
+            </button>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-          <KanbanColumn
-            title="Todo"
-            droppableId="Todo"
-            bgColor="bg-gray-600"
-            tasks={todoTasks}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-          />
+            <KanbanColumn
+              title="Todo"
+              droppableId="Todo"
+              bgColor="bg-slate-700"
+              tasks={todoTasks}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
 
-          <KanbanColumn
-            title="In Progress"
-            droppableId="In Progress"
-            bgColor="bg-orange-500"
-            tasks={progressTasks}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-          />
+            <KanbanColumn
+              title="In Progress"
+              droppableId="In Progress"
+              bgColor="bg-amber-500"
+              tasks={progressTasks}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
 
-          <KanbanColumn
-            title="Done"
-            droppableId="Done"
-            bgColor="bg-emerald-600"
-            tasks={doneTasks}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-          />
+            <KanbanColumn
+              title="Done"
+              droppableId="Done"
+              bgColor="bg-emerald-600"
+              tasks={doneTasks}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
 
-        </div>
-      </DragDropContext>
+          </div>
+        </DragDropContext>
+      </div>
     </Layout>
   );
 };

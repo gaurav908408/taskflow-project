@@ -63,65 +63,60 @@ const Dashboard = () => {
 
   return (
     <Layout>
-
-      <div className="w-full max-w-7xl mx-auto px-2">
+      <div className="w-full max-w-5xl mx-auto space-y-8">
 
         {/* Header */}
-        <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-10">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6 sm:p-8">
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
 
-            {/* Left Section */}
-            <div className="flex-1">
+            {/* Greeting */}
+            <div className="text-left">
 
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
                 👋 {greeting}, {user?.name || "User"}!
               </h1>
 
-              <p className="mt-4 text-lg text-gray-500 leading-8 max-w-3xl">
-                Welcome back to TaskFlow. Manage your projects and complete your tasks efficiently.
+              <p className="mt-1.5 text-sm text-gray-500 max-w-xl">
+                Welcome back to TaskFlow. Manage your projects and complete your
+                tasks efficiently.
               </p>
 
             </div>
 
-            {/* Right Section - Date Card */}
-            <div className="flex-shrink-0">
+            {/* Date Card */}
+            <div className="bg-emerald-50/80 border border-emerald-100/80 rounded-xl px-5 py-3 text-left sm:text-center min-w-[200px]">
 
-              <div className="min-w-[280px] bg-emerald-50 border border-emerald-100 rounded-2xl px-7 py-5 shadow-md text-center">
+              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+                Today's Date
+              </p>
 
-                <p className="text-base text-gray-500 font-medium">
-                  Today's Date
-                </p>
-
-                <h2 className="mt-2 text-2xl font-bold text-emerald-600 whitespace-nowrap">
-                  {new Date().toLocaleDateString("en-GB", {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </h2>
-
-              </div>
+              <h2 className="mt-1 text-sm font-bold text-emerald-700 whitespace-nowrap">
+                {new Date().toLocaleDateString("en-GB", {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </h2>
 
             </div>
 
           </div>
 
         </div>
-        <br />
 
         {/* Dashboard Heading */}
-        <div className="flex justify-center mt-16 mb-10">
+        <div className="flex items-center justify-between pt-2">
 
-          <h2 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
+          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
             📊 Dashboard Overview
           </h2>
-
+           
         </div>
-        <br />
-                {/* Dashboard Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+
+        {/* Dashboard Cards: 2 Cards Per Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
           <StatCard
             title="Total Projects"
@@ -134,27 +129,26 @@ const Dashboard = () => {
             title="Total Tasks"
             value={dashboard?.totalTasks || 0}
             icon={<FaTasks />}
-            color="bg-orange-500"
+            color="bg-amber-500"
           />
 
           <StatCard
             title="Completed"
             value={dashboard?.completedTasks || 0}
             icon={<FaCheckCircle />}
-            color="bg-green-600"
+            color="bg-emerald-500"
           />
 
           <StatCard
             title="Pending"
             value={dashboard?.pendingTasks || 0}
             icon={<FaClock />}
-            color="bg-red-500"
+            color="bg-rose-500"
           />
 
         </div>
 
       </div>
-
     </Layout>
   );
 };

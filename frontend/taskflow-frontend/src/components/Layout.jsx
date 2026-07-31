@@ -6,24 +6,29 @@ const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Navbar */}
-      <Navbar setSidebarOpen={setSidebarOpen} />
+    <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-      <div className="flex">
-        {/* Sidebar */}
-        <Sidebar
-          sidebarOpen={sidebarOpen}
-          setSidebarOpen={setSidebarOpen}
-        />
+      {/* Sidebar */}
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
 
-        {/* Main Content */}
-        <main className="flex-1 md:ml-60 overflow-x-hidden">
-          <div className="w-full px-8 lg:px-10 xl:px-12 py-8">
+      {/* Content Column */}
+      <div className="flex-1 flex flex-col min-w-0">
+
+        {/* Top Navbar */}
+        <Navbar setSidebarOpen={setSidebarOpen} />
+
+        {/* Main Centered Workspace */}
+        <main className="flex-1 px-6 sm:px-12 lg:px-16 py-8 sm:py-10">
+          <div className="max-w-5xl mx-auto w-full">
             {children}
           </div>
         </main>
+
       </div>
+
     </div>
   );
 };

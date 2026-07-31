@@ -35,112 +35,74 @@ const CreateProject = () => {
 
   return (
     <Layout>
-      <div className="min-h-[calc(100vh-90px)] bg-gray-50 flex justify-center items-start px-6 py-12">
-        {/* Form Card */}
-        <div className="w-full max-w-3xl bg-white rounded-3xl border border-gray-100 shadow-xl">
-          <div className="px-14 py-12">
-            {/* Heading */}
-            <h1 className="text-5xl font-bold text-gray-900 leading-tight">
-              Create New Project
-            </h1>
+      <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-10">
 
-            <p className="mt-3 mb-10 text-lg text-gray-500">
-              Create your project and start managing your tasks.
-            </p>
+        {/* Heading */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">
+            🚀 Create Project
+          </h1>
 
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Project Name */}
-              <div>
-                <label className="block text-base font-semibold text-gray-900 mb-3">
-                  Project Name
-                </label>
-
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter project name"
-                  required
-                  className="
-                    w-full
-                    h-14
-                    rounded-2xl
-                    border
-                    border-gray-200
-                    bg-white
-                    px-6
-                    text-lg
-                    placeholder:text-gray-400
-                    outline-none
-                    transition-all
-                    duration-200
-                    focus:border-emerald-500
-                    focus:ring-4
-                    focus:ring-emerald-100
-                  "
-                />
-              </div>
-
-              {/* Description */}
-              <div>
-                <label className="block text-base font-semibold text-gray-900 mb-3">
-                  Description
-                </label>
-
-                <textarea
-                  rows={6}
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  placeholder="Write something about your project..."
-                  className="
-                    w-full
-                    rounded-2xl
-                    border
-                    border-gray-200
-                    bg-white
-                    px-6
-                    py-5
-                    resize-none
-                    text-lg
-                    placeholder:text-gray-400
-                    outline-none
-                    transition-all
-                    duration-200
-                    focus:border-emerald-500
-                    focus:ring-4
-                    focus:ring-emerald-100
-                  "
-                />
-              </div>
-
-              {/* Button */}
-              <div className="flex justify-center pt-2">
-                <button
-                  type="submit"
-                  className="
-                    w-full
-                    md:w-[38%]
-                    h-14
-                    rounded-2xl
-                    bg-emerald-600
-                    hover:bg-emerald-700
-                    text-white
-                    text-lg
-                    font-semibold
-                    shadow-lg
-                    hover:shadow-xl
-                    transition-all
-                    duration-300
-                  "
-                >
-                  Create Project
-                </button>
-              </div>
-            </form>
-          </div>
+          <p className="mt-2 text-gray-500 text-base">
+            Create your project and start managing your tasks.
+          </p>
         </div>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+
+          {/* Project Name */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Project Name *
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter project name"
+              required
+              className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            />
+          </div>
+
+          {/* Description */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Description
+            </label>
+
+            <textarea
+              rows={4}
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="Write something about your project..."
+              className="w-full rounded-xl border border-gray-300 p-4 text-base resize-none outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            />
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <button
+              type="submit"
+              className="flex-1 h-12 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-base font-semibold shadow transition"
+            >
+              Create Project
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/projects")}
+              className="flex-1 h-12 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-base font-semibold transition"
+            >
+              Cancel
+            </button>
+          </div>
+
+        </form>
+
       </div>
     </Layout>
   );

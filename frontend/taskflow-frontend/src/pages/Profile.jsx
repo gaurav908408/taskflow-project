@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 import { getMe } from "../services/api";
 import toast from "react-hot-toast";
+import { FaUserShield, FaCalendarAlt, FaEnvelope, FaIdCard, FaRocket } from "react-icons/fa";
 
 const Profile = () => {
   const [loading, setLoading] = useState(true);
@@ -27,82 +28,79 @@ const Profile = () => {
     return <Loader />;
   }
 
+  const initial = user?.name ? user.name.charAt(0).toUpperCase() : "U";
+
   return (
     <Layout>
-      <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-10">
+      <div className="max-w-3xl mx-auto space-y-6">
 
-        <div className="w-full max-w-4xl bg-white rounded-3xl shadow-xl p-10">
+        {/* Profile Card Header */}
+        <div className="w-full bg-white rounded-3xl border border-slate-200/80 shadow-sm p-8 sm:p-10 relative overflow-hidden">
+          
+          {/* Top Banner Accent */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700" />
 
-          {/* Profile Header */}
-          <div className="flex flex-col items-center">
+          <div className="relative pt-6 flex flex-col items-center text-center">
 
-            <div className="w-32 h-32 rounded-full bg-emerald-600 text-white flex items-center justify-center text-5xl font-bold shadow-lg">
-              {user?.name?.charAt(0).toUpperCase()}
+            {/* Avatar Initial Badge */}
+            <div className="w-24 h-24 rounded-3xl bg-gradient-to-tr from-sky-500 via-teal-400 to-emerald-400 border-4 border-white text-white font-extrabold text-4xl flex items-center justify-center shadow-xl ring-2 ring-emerald-500/20">
+              {initial}
             </div>
 
-            <h1 className="text-4xl font-bold text-gray-800 mt-6">
-              {user?.name}
-            </h1>
-
-            <p className="text-gray-500 text-lg mt-2">
-              {user?.email}
-            </p>
+            <div className="mt-4">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                <FaUserShield className="text-emerald-600 dark:text-emerald-400" />
+                Verified TaskFlow Admin
+              </span>
+            </div>
 
           </div>
 
-          {/* Information */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          {/* Account Details Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
 
-            {/* Full Name */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
-
-              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+            <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 transition duration-300 hover:border-emerald-200">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                <FaUserShield className="text-emerald-500" />
                 Full Name
-              </h3>
-
-              <p className="text-xl font-bold text-gray-800 mt-3">
+              </div>
+              <p className="text-base font-bold text-slate-800 mt-2">
                 {user?.name}
               </p>
-
             </div>
 
-            {/* Email */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
-
-              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+            <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 transition duration-300 hover:border-emerald-200">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                <FaEnvelope className="text-emerald-500" />
                 Email Address
-              </h3>
-
-              <p className="text-lg font-semibold text-gray-800 mt-3 break-all">
+              </div>
+              <p className="text-sm font-semibold text-slate-800 mt-2 break-all">
                 {user?.email}
               </p>
-
             </div>
 
-            {/* Created */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
-
-              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+            <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 transition duration-300 hover:border-emerald-200">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                <FaCalendarAlt className="text-emerald-500" />
                 Account Created
-              </h3>
-
-              <p className="text-lg font-semibold text-gray-800 mt-3">
-                {new Date(user?.createdAt).toLocaleDateString()}
+              </div>
+              <p className="text-sm font-semibold text-slate-800 mt-2">
+                {new Date(user?.createdAt).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
               </p>
-
             </div>
 
-            {/* User ID */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
-
-              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
-                User ID
-              </h3>
-
-              <p className="text-sm text-gray-700 mt-3 break-all leading-6">
+            <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 transition duration-300 hover:border-emerald-200">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                <FaIdCard className="text-emerald-500" />
+                Account ID
+              </div>
+              <p className="text-xs font-mono font-semibold text-slate-600 mt-2 break-all bg-white px-2.5 py-1 rounded border border-slate-200">
                 {user?._id}
               </p>
-
             </div>
 
           </div>
