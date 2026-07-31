@@ -47,39 +47,59 @@ const Projects = () => {
 
   return (
     <Layout>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Projects</h1>
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-6">
 
-        <button
-          onClick={() => navigate("/projects/create")}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg"
-        >
-          + New Project
-        </button>
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-5 mb-10">
+
+          <div>
+            <h1 className="text-4xl font-bold text-gray-800">
+              📁 Projects
+            </h1>
+
+            <p className="text-gray-500 mt-2">
+              Manage all your projects from one place.
+            </p>
+          </div>
+
+          <button
+            onClick={() => navigate("/projects/create")}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md transition hover:shadow-lg"
+          >
+            + New Project
+          </button>
+
+        </div>
+
+        {/* Projects */}
+        {projects.length === 0 ? (
+          <div className="bg-white rounded-2xl shadow-md p-12 text-center">
+
+            <h2 className="text-2xl font-bold text-gray-700">
+              No Projects Found
+            </h2>
+
+            <p className="text-gray-500 mt-3">
+              Create your first project to get started.
+            </p>
+
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+            {projects.map((project) => (
+              <ProjectCard
+                key={project._id}
+                project={project}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            ))}
+
+          </div>
+        )}
+
       </div>
-
-      {projects.length === 0 ? (
-        <div className="bg-white p-10 rounded-xl shadow text-center">
-          <h2 className="text-xl font-semibold">
-            No Projects Found
-          </h2>
-
-          <p className="text-gray-500 mt-2">
-            Create your first project.
-          </p>
-        </div>
-      ) : (
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project._id}
-              project={project}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-            />
-          ))}
-        </div>
-      )}
     </Layout>
   );
 };
