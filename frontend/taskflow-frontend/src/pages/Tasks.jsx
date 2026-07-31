@@ -87,7 +87,7 @@ const Tasks = () => {
           + Create Task
         </button>
       </div>
-
+      <br />
       {/* Search & Filters */}
       <div className="bg-white rounded-xl shadow-md p-5 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
