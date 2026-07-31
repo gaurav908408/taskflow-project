@@ -68,7 +68,7 @@ const Dashboard = () => {
             <h1 className="text-4xl font-bold text-gray-800">
               👋 {greeting}, {user?.name || "User"}!
             </h1>
-
+            <br />
             <p className="mt-3 text-lg text-gray-500">
               Welcome back to TaskFlow. Manage your projects and complete your tasks efficiently.
             </p>
@@ -92,6 +92,8 @@ const Dashboard = () => {
           </div>
 
         </div>
+        <br />
+        <br />
 
         {/* Dashboard Heading */}
         <div className="flex justify-center mt-16 mb-14">
@@ -101,9 +103,6 @@ const Dashboard = () => {
           </h2>
 
         </div>
-        <br />
-        <br />
-        <br />
         <br />
         <br />
         <br />
