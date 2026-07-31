@@ -5,48 +5,50 @@ const StatCard = ({ title, value, icon, color }) => {
     <div
       className="
         bg-white
-        rounded-2xl
-        shadow-md
+        rounded-3xl
+        shadow-lg
         p-8
-        flex
-        justify-between
-        items-center
         border
         border-gray-100
-        cursor-pointer
+        flex
+        flex-col
+        items-center
+        justify-center
+        text-center
         transition-all
         duration-300
-        hover:shadow-2xl
         hover:-translate-y-2
-        hover:scale-105
+        hover:shadow-2xl
+        min-h-[250px]
       "
     >
-      <div>
-        <h4 className="text-gray-500 text-lg font-medium">
-          {title}
-        </h4>
-
-        <h2 className="text-5xl font-bold text-gray-800 mt-3">
-          {value}
-        </h2>
-      </div>
-
+      {/* Icon */}
       <div
         className={`
-          w-20
-          h-20
+          w-24
+          h-24
           rounded-full
           flex
-          justify-center
           items-center
+          justify-center
           text-white
-          text-4xl
+          text-5xl
           shadow-lg
           ${color}
         `}
       >
         {icon}
       </div>
+
+      {/* Title */}
+      <h3 className="mt-6 text-2xl font-semibold text-gray-700">
+        {title}
+      </h3>
+
+      {/* Value */}
+      <h2 className="mt-4 text-5xl font-bold text-gray-900">
+        {value}
+      </h2>
     </div>
   );
 };

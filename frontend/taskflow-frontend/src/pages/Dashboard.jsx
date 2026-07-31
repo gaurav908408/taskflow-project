@@ -59,31 +59,27 @@ const Dashboard = () => {
 
   return (
     <Layout>
+      <div className="max-w-7xl mx-auto">
 
-      <div className="p-6">
-
-        {/* Welcome Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-5">
+        {/* Header */}
+        <div className="bg-white rounded-3xl shadow-lg p-8 mb-10 flex flex-col lg:flex-row justify-between items-center gap-6">
 
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-              👋 {greeting}, {user?.name || "User"}!
+            <h1 className="text-4xl font-bold text-gray-800">
+              👋 {greeting}, {user?.name || "User"}
             </h1>
 
-            <p className="text-gray-500 mt-2 text-base md:text-lg">
-              Welcome back to TaskFlow. Manage your projects and complete your
-              tasks efficiently.
+            <p className="text-gray-500 mt-3 text-lg">
+              Welcome back to TaskFlow. Manage your projects efficiently.
             </p>
           </div>
 
-
-          <div className="text-right bg-white shadow-md rounded-xl px-5 py-3">
-
-            <p className="text-sm text-gray-500">
+          <div className="bg-emerald-50 px-6 py-4 rounded-2xl text-center shadow">
+            <p className="text-gray-500 text-sm">
               Today's Date
             </p>
 
-            <h2 className="text-lg font-bold text-emerald-600 mt-1">
+            <h2 className="text-xl font-bold text-emerald-600 mt-1">
               {new Date().toLocaleDateString("en-GB", {
                 weekday: "long",
                 day: "numeric",
@@ -91,14 +87,19 @@ const Dashboard = () => {
                 year: "numeric",
               })}
             </h2>
-
           </div>
 
         </div>
 
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-gray-800">
+            📊 Dashboard Overview
+          </h2>
+        </div>
 
-        {/* Dashboard Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
 
           <StatCard
             title="Total Projects"
@@ -131,7 +132,6 @@ const Dashboard = () => {
         </div>
 
       </div>
-
     </Layout>
   );
 };
