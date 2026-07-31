@@ -3,11 +3,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-// Pages
+// Public Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
 
+// Protected Pages
+import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import CreateProject from "./pages/CreateProject";
 import EditProject from "./pages/EditProject";
@@ -19,6 +20,7 @@ import EditTask from "./pages/EditTask";
 
 import Kanban from "./pages/Kanban";
 import Profile from "./pages/Profile";
+
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -26,14 +28,15 @@ function App() {
     <AuthProvider>
       <Routes>
 
-        {/* Redirect */}
+        {/* Redirect Root */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Dashboard */}
+        {/* Protected Routes */}
+
         <Route
           path="/dashboard"
           element={
@@ -43,7 +46,6 @@ function App() {
           }
         />
 
-        {/* Projects */}
         <Route
           path="/projects"
           element={
@@ -80,7 +82,6 @@ function App() {
           }
         />
 
-        {/* Tasks */}
         <Route
           path="/tasks"
           element={
@@ -108,7 +109,6 @@ function App() {
           }
         />
 
-        {/* Kanban */}
         <Route
           path="/kanban"
           element={
@@ -118,7 +118,6 @@ function App() {
           }
         />
 
-        {/* Profile */}
         <Route
           path="/profile"
           element={

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import {
   FaFolderOpen,
@@ -17,7 +16,6 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Dashboard Data
   const loadDashboard = async () => {
     try {
       const { data } = await getDashboard();
@@ -27,7 +25,6 @@ const Dashboard = () => {
     }
   };
 
-  // Logged-in User
   const loadUser = async () => {
     try {
       const { data } = await getMe();
@@ -50,7 +47,6 @@ const Dashboard = () => {
     return <Loader />;
   }
 
-  // Greeting
   const hour = new Date().getHours();
 
   let greeting = "Good Evening";
@@ -64,67 +60,75 @@ const Dashboard = () => {
   return (
     <Layout>
 
-      {/* Welcome Section */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+      <div className="p-6">
 
-        <div>
-          <h1 className="text-4xl font-bold text-gray-800">
-            👋 {greeting}, {user?.name || "User"}!
-          </h1>
+        {/* Welcome Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-5">
 
-          <p className="text-gray-500 mt-3 text-lg">
-            Welcome back to TaskFlow. Manage your projects and complete your
-            tasks efficiently.
-          </p>
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+              👋 {greeting}, {user?.name || "User"}!
+            </h1>
+
+            <p className="text-gray-500 mt-2 text-base md:text-lg">
+              Welcome back to TaskFlow. Manage your projects and complete your
+              tasks efficiently.
+            </p>
+          </div>
+
+
+          <div className="text-right bg-white shadow-md rounded-xl px-5 py-3">
+
+            <p className="text-sm text-gray-500">
+              Today's Date
+            </p>
+
+            <h2 className="text-lg font-bold text-emerald-600 mt-1">
+              {new Date().toLocaleDateString("en-GB", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </h2>
+
+          </div>
+
         </div>
 
-        <div className="mt-5 md:mt-0 text-right bg-white shadow-md rounded-xl px-6 py-4">
-          <p className="text-sm text-gray-500">
-            Today's Date
-          </p>
 
-          <h2 className="text-xl font-bold text-emerald-600 mt-1">
-            {new Date().toLocaleDateString("en-GB", {
-              weekday: "long",
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
-          </h2>
+        {/* Dashboard Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+          <StatCard
+            title="Total Projects"
+            value={dashboard?.totalProjects || 0}
+            icon={<FaFolderOpen />}
+            color="bg-emerald-600"
+          />
+
+          <StatCard
+            title="Total Tasks"
+            value={dashboard?.totalTasks || 0}
+            icon={<FaTasks />}
+            color="bg-orange-500"
+          />
+
+          <StatCard
+            title="Completed"
+            value={dashboard?.completedTasks || 0}
+            icon={<FaCheckCircle />}
+            color="bg-green-600"
+          />
+
+          <StatCard
+            title="Pending"
+            value={dashboard?.pendingTasks || 0}
+            icon={<FaClock />}
+            color="bg-red-500"
+          />
+
         </div>
-
-      </div>
-
-      {/* Dashboard Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
-
-        <StatCard
-          title="Total Projects"
-          value={dashboard?.totalProjects || 0}
-          icon={<FaFolderOpen />}
-          color="bg-emerald-600"
-        />
-
-        <StatCard
-          title="Total Tasks"
-          value={dashboard?.totalTasks || 0}
-          icon={<FaTasks />}
-          color="bg-orange-500"
-        />
-
-        <StatCard
-          title="Completed"
-          value={dashboard?.completedTasks || 0}
-          icon={<FaCheckCircle />}
-          color="bg-green-600"
-        />
-
-        <StatCard
-          title="Pending"
-          value={dashboard?.pendingTasks || 0}
-          icon={<FaClock />}
-          color="bg-red-500"
-        />
 
       </div>
 
