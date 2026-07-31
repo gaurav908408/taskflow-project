@@ -7,12 +7,10 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-
       {/* Navbar */}
       <Navbar setSidebarOpen={setSidebarOpen} />
 
       <div className="flex">
-
         {/* Sidebar */}
         <Sidebar
           sidebarOpen={sidebarOpen}
@@ -20,14 +18,12 @@ const Layout = ({ children }) => {
         />
 
         {/* Main Content */}
-        <main className="flex-1 md:ml-64 p-6 md:p-8 overflow-x-auto">
-          <div className="max-w-7xl mx-auto">
+        <main className="flex-1 md:ml-60 overflow-x-hidden">
+          <div className="w-full px-8 lg:px-10 xl:px-12 py-8">
             {children}
           </div>
         </main>
-
       </div>
-
     </div>
   );
 };

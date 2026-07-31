@@ -24,9 +24,7 @@ const CreateProject = () => {
 
     try {
       await createProject(formData);
-
       toast.success("Project Created Successfully");
-
       navigate("/projects");
     } catch (error) {
       toast.error(
@@ -37,49 +35,112 @@ const CreateProject = () => {
 
   return (
     <Layout>
-      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-xl p-8">
-        <h1 className="text-3xl font-bold mb-6 text-emerald-600">
-          Create Project
-        </h1>
+      <div className="min-h-[calc(100vh-90px)] bg-gray-50 flex justify-center items-start px-6 py-12">
+        {/* Form Card */}
+        <div className="w-full max-w-3xl bg-white rounded-3xl border border-gray-100 shadow-xl">
+          <div className="px-14 py-12">
+            {/* Heading */}
+            <h1 className="text-5xl font-bold text-gray-900 leading-tight">
+              Create New Project
+            </h1>
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-5">
-            <label className="block mb-2 font-medium">
-              Project Name
-            </label>
+            <p className="mt-3 mb-10 text-lg text-gray-500">
+              Create your project and start managing your tasks.
+            </p>
 
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Enter Project Name"
-              className="w-full border rounded-lg p-3 outline-none focus:border-emerald-600"
-              required
-            />
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Project Name */}
+              <div>
+                <label className="block text-base font-semibold text-gray-900 mb-3">
+                  Project Name
+                </label>
+
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter project name"
+                  required
+                  className="
+                    w-full
+                    h-14
+                    rounded-2xl
+                    border
+                    border-gray-200
+                    bg-white
+                    px-6
+                    text-lg
+                    placeholder:text-gray-400
+                    outline-none
+                    transition-all
+                    duration-200
+                    focus:border-emerald-500
+                    focus:ring-4
+                    focus:ring-emerald-100
+                  "
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-base font-semibold text-gray-900 mb-3">
+                  Description
+                </label>
+
+                <textarea
+                  rows={6}
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  placeholder="Write something about your project..."
+                  className="
+                    w-full
+                    rounded-2xl
+                    border
+                    border-gray-200
+                    bg-white
+                    px-6
+                    py-5
+                    resize-none
+                    text-lg
+                    placeholder:text-gray-400
+                    outline-none
+                    transition-all
+                    duration-200
+                    focus:border-emerald-500
+                    focus:ring-4
+                    focus:ring-emerald-100
+                  "
+                />
+              </div>
+
+              {/* Button */}
+              <div className="flex justify-center pt-2">
+                <button
+                  type="submit"
+                  className="
+                    w-full
+                    md:w-[38%]
+                    h-14
+                    rounded-2xl
+                    bg-emerald-600
+                    hover:bg-emerald-700
+                    text-white
+                    text-lg
+                    font-semibold
+                    shadow-lg
+                    hover:shadow-xl
+                    transition-all
+                    duration-300
+                  "
+                >
+                  Create Project
+                </button>
+              </div>
+            </form>
           </div>
-
-          <div className="mb-6">
-            <label className="block mb-2 font-medium">
-              Description
-            </label>
-
-            <textarea
-              rows="5"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Enter Description"
-              className="w-full border rounded-lg p-3 outline-none focus:border-emerald-600"
-            ></textarea>
-          </div>
-
-          <button
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg"
-          >
-            Create Project
-          </button>
-        </form>
+        </div>
       </div>
     </Layout>
   );

@@ -1,7 +1,11 @@
 import axios from "axios";
 
+// Automatically detect environment
 const API = axios.create({
- baseURL: "https://taskflow-backend-ytng.onrender.com/api"
+  baseURL:
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000/api"
+      : "https://taskflow-backend-ytng.onrender.com/api",
 });
 
 // ================= TOKEN =================
@@ -66,7 +70,7 @@ export const createTask = (data) =>
 export const updateTask = (id, data) =>
   API.put(`/tasks/${id}`, data);
 
-// ⭐ Kanban Status Update
+// Kanban Status Update
 export const updateTaskStatus = (id, status) =>
   API.patch(`/tasks/${id}/status`, { status });
 

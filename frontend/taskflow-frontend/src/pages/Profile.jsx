@@ -26,71 +26,91 @@ const Profile = () => {
   if (loading) {
     return <Loader />;
   }
-    return (
-    <center>
+
+  return (
     <Layout>
-      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
+      <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-10">
 
-        <div className="flex flex-col items-center">
+        <div className="w-full max-w-4xl bg-white rounded-3xl shadow-xl p-10">
 
-          <div className="w-28 h-28 rounded-full bg-emerald-600 text-white flex items-center justify-center text-4xl font-bold">
-            {user?.name?.charAt(0).toUpperCase()}
-          </div>
+          {/* Profile Header */}
+          <div className="flex flex-col items-center">
 
-          <h1 className="text-3xl font-bold mt-5">
-            {user?.name}
-          </h1>
+            <div className="w-32 h-32 rounded-full bg-emerald-600 text-white flex items-center justify-center text-5xl font-bold shadow-lg">
+              {user?.name?.charAt(0).toUpperCase()}
+            </div>
 
-          <p className="text-gray-500 mt-2">
-            {user?.email}
-          </p>
+            <h1 className="text-4xl font-bold text-gray-800 mt-6">
+              {user?.name}
+            </h1>
 
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mt-10">
-
-          <div className="border rounded-xl p-5">
-            <h3 className="font-semibold text-gray-700 mb-2">
-              Full Name
-            </h3>
-
-            <p>{user?.name}</p>
-          </div>
-
-          <div className="border rounded-xl p-5">
-            <h3 className="font-semibold text-gray-700 mb-2">
-              Email Address
-            </h3>
-
-            <p>{user?.email}</p>
-          </div>
-
-          <div className="border rounded-xl p-5">
-            <h3 className="font-semibold text-gray-700 mb-2">
-              Account Created
-            </h3>
-
-            <p>
-              {new Date(user?.createdAt).toLocaleDateString()}
+            <p className="text-gray-500 text-lg mt-2">
+              {user?.email}
             </p>
+
           </div>
 
-          <div className="border rounded-xl p-5">
-            <h3 className="font-semibold text-gray-700 mb-2">
-              User ID
-            </h3>
+          {/* Information */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
 
-            <p className="break-all text-sm">
-              {user?._id}
-            </p>
+            {/* Full Name */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
+
+              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                Full Name
+              </h3>
+
+              <p className="text-xl font-bold text-gray-800 mt-3">
+                {user?.name}
+              </p>
+
+            </div>
+
+            {/* Email */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
+
+              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                Email Address
+              </h3>
+
+              <p className="text-lg font-semibold text-gray-800 mt-3 break-all">
+                {user?.email}
+              </p>
+
+            </div>
+
+            {/* Created */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
+
+              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                Account Created
+              </h3>
+
+              <p className="text-lg font-semibold text-gray-800 mt-3">
+                {new Date(user?.createdAt).toLocaleDateString()}
+              </p>
+
+            </div>
+
+            {/* User ID */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition duration-300">
+
+              <h3 className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                User ID
+              </h3>
+
+              <p className="text-sm text-gray-700 mt-3 break-all leading-6">
+                {user?._id}
+              </p>
+
+            </div>
+
           </div>
 
         </div>
 
       </div>
     </Layout>
-    </center>
-
   );
 };
 

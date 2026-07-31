@@ -1,59 +1,63 @@
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash, FaCalendarAlt } from "react-icons/fa";
 
 const ProjectCard = ({ project, onEdit, onDelete }) => {
   return (
     <div
       className="
         bg-white
-        rounded-2xl
-        shadow-md
         border
-        border-gray-100
-        p-6
+        border-gray-200
+        rounded-xl
+        shadow-md
+        hover:shadow-xl
         transition-all
         duration-300
-        hover:-translate-y-2
-        hover:shadow-xl
-        flex
-        flex-col
-        justify-between
-        h-full
+        p-6
+        w-full
       "
     >
-      {/* Project Info */}
-      <div>
-        <h2 className="text-2xl font-bold text-gray-800">
-          {project.name}
-        </h2>
+      {/* Title */}
+      <h2 className="text-2xl font-bold text-gray-900 break-words">
+        {project.name}
+      </h2>
 
-        <p className="text-gray-500 mt-3 leading-7">
-          {project.description}
-        </p>
+      {/* Description */}
+      <p className="mt-4 text-gray-600 leading-7 min-h-[70px] break-words">
+        {project.description || "No description available."}
+      </p>
 
-        <p className="text-sm text-gray-400 mt-5">
-          Created :{" "}
-          {new Date(project.createdAt).toLocaleDateString()}
-        </p>
+      {/* Date */}
+      <div className="flex items-center gap-2 mt-5 text-sm text-gray-500">
+        <FaCalendarAlt className="text-emerald-600" />
+        <span>
+          Created on{" "}
+          <span className="font-medium text-gray-700">
+            {new Date(project.createdAt).toLocaleDateString()}
+          </span>
+        </span>
       </div>
 
-      {/* Buttons */}
-      <div className="flex gap-3 mt-8">
+      {/* Divider */}
+      <div className="border-t border-gray-200 my-6"></div>
 
+      {/* Buttons */}
+      <div className="flex gap-3">
         <button
           onClick={() => onEdit(project)}
           className="
             flex-1
             flex
-            justify-center
             items-center
+            justify-center
             gap-2
             bg-emerald-600
             hover:bg-emerald-700
             text-white
-            py-3
-            rounded-xl
+            py-2.5
+            rounded-md
             font-semibold
-            transition
+            transition-all
+            duration-300
           "
         >
           <FaEdit />
@@ -65,22 +69,22 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
           className="
             flex-1
             flex
-            justify-center
             items-center
+            justify-center
             gap-2
             bg-red-500
             hover:bg-red-600
             text-white
-            py-3
-            rounded-xl
+            py-2.5
+            rounded-md
             font-semibold
-            transition
+            transition-all
+            duration-300
           "
         >
           <FaTrash />
           Delete
         </button>
-
       </div>
     </div>
   );
