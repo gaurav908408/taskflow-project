@@ -62,24 +62,25 @@ const Dashboard = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="bg-white rounded-3xl shadow-lg p-8 mb-10 flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div className="bg-white rounded-3xl shadow-lg p-8 flex flex-col lg:flex-row justify-between items-center gap-6">
 
           <div>
             <h1 className="text-4xl font-bold text-gray-800">
-              👋 {greeting}, {user?.name || "User"}
+              👋 {greeting}, {user?.name || "User"}!
             </h1>
 
-            <p className="text-gray-500 mt-3 text-lg">
-              Welcome back to TaskFlow. Manage your projects efficiently.
+            <p className="mt-3 text-lg text-gray-500">
+              Welcome back to TaskFlow. Manage your projects and complete your tasks efficiently.
             </p>
           </div>
 
-          <div className="bg-emerald-50 px-6 py-4 rounded-2xl text-center shadow">
-            <p className="text-gray-500 text-sm">
+          <div className="bg-emerald-50 rounded-2xl shadow px-6 py-4 text-center">
+
+            <p className="text-sm text-gray-500">
               Today's Date
             </p>
 
-            <h2 className="text-xl font-bold text-emerald-600 mt-1">
+            <h2 className="mt-1 text-lg font-bold text-emerald-600">
               {new Date().toLocaleDateString("en-GB", {
                 weekday: "long",
                 day: "numeric",
@@ -87,19 +88,22 @@ const Dashboard = () => {
                 year: "numeric",
               })}
             </h2>
+
           </div>
 
         </div>
 
-        {/* Title */}
-        <div className="text-center mb-10">
+        {/* Dashboard Heading */}
+        <div className="flex justify-center mt-16 mb-14">
+
           <h2 className="text-4xl font-bold text-gray-800">
             📊 Dashboard Overview
           </h2>
+
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
 
           <StatCard
             title="Total Projects"
