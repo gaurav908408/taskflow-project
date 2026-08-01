@@ -10,7 +10,7 @@ const KanbanColumn = ({
   onDelete,
 }) => {
   return (
-    <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4 flex flex-col h-full">
+    <div className="bg-slate-100/70 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 flex flex-col h-full">
 
       <div className={`${bgColor} text-white rounded-xl py-2.5 px-4 mb-4 flex items-center justify-between shadow-sm`}>
         <h2 className="text-sm font-bold tracking-wide">
@@ -27,11 +27,11 @@ const KanbanColumn = ({
             ref={provided.innerRef}
             {...provided.droppableProps}
             className={`min-h-[420px] space-y-3 p-1 rounded-xl transition ${
-              snapshot.isDraggingOver ? "bg-emerald-50/50 border-2 border-dashed border-emerald-300" : ""
+              snapshot.isDraggingOver ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-2 border-dashed border-emerald-300 dark:border-emerald-700" : ""
             }`}
           >
             {tasks.length === 0 ? (
-              <div className="text-center text-slate-400 text-xs py-12 border-2 border-dashed border-slate-200 rounded-xl">
+              <div className="text-center text-slate-400 dark:text-slate-500 text-xs py-12 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl">
                 Drop tasks here
               </div>
             ) : (

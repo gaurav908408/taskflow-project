@@ -78,10 +78,10 @@ const Tasks = () => {
       <div className="w-full max-w-5xl mx-auto space-y-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
               Task Management
             </h1>
-            <p className="text-gray-500 text-sm mt-1">
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
               Organize, filter and track your team tasks.
             </p>
           </div>
@@ -95,7 +95,7 @@ const Tasks = () => {
         </div>
 
         {/* Search & Filters */}
-        <div className="bg-white rounded-2xl shadow-xs border border-gray-200/80 p-5">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xs border border-slate-200/80 dark:border-slate-800 p-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
             <input
@@ -106,7 +106,7 @@ const Tasks = () => {
                 setSearch(e.target.value);
                 setPage(1);
               }}
-              className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+              className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
             />
 
             <select
@@ -115,7 +115,7 @@ const Tasks = () => {
                 setStatus(e.target.value);
                 setPage(1);
               }}
-              className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+              className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
             >
               <option value="">All Status</option>
               <option value="Todo">Todo</option>
@@ -129,7 +129,7 @@ const Tasks = () => {
                 setPriority(e.target.value);
                 setPage(1);
               }}
-              className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+              className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
             >
               <option value="">All Priority</option>
               <option value="Low">Low</option>
@@ -142,12 +142,12 @@ const Tasks = () => {
 
         {/* Task Cards Grid: Exactly 2 Cards Per Row */}
         {tasks.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-gray-200/80 p-12 text-center shadow-xs">
-            <h2 className="text-xl font-bold text-gray-700">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-12 text-center shadow-xs">
+            <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300">
               No Tasks Found
             </h2>
 
-            <p className="text-gray-500 text-xs mt-1.5">
+            <p className="text-slate-500 dark:text-slate-400 text-xs mt-1.5">
               Create your first task or change your search filter.
             </p>
           </div>
@@ -169,12 +169,12 @@ const Tasks = () => {
               <button
                 disabled={page === 1}
                 onClick={() => setPage(page - 1)}
-                className="px-4 py-2 text-sm font-semibold rounded-xl bg-gray-100 text-gray-700 disabled:opacity-40 hover:bg-gray-200 transition"
+                className="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 disabled:opacity-40 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               >
                 Previous
               </button>
 
-              <span className="font-semibold text-sm text-gray-600">
+              <span className="font-semibold text-sm text-slate-600 dark:text-slate-400">
                 Page {page} of {totalPages}
               </span>
 

@@ -9,18 +9,18 @@ import {
 } from "react-icons/fa";
 
 const SidebarContent = ({ menus, setSidebarOpen }) => (
-  <div className="flex flex-col h-full bg-slate-900 text-slate-300 border-r border-slate-800 shadow-xl">
+  <div className="flex flex-col h-full bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-r border-slate-200 dark:border-slate-800 shadow-xl transition-colors duration-300">
     
     {/* Logo Brand Header with Sky Blue Accent */}
-    <div className="px-6 h-20 border-b border-slate-800/80 flex items-center gap-3">
+    <div className="px-6 h-20 border-b border-slate-200 dark:border-slate-800/80 flex items-center gap-3">
       <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-teal-400 to-emerald-400 flex items-center justify-center text-white text-lg shadow-md shadow-sky-500/30">
         <FaRocket className="transform -rotate-12" />
       </div>
       <div>
-        <h1 className="text-xl font-extrabold text-white tracking-tight leading-none">
+        <h1 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-none">
           TaskFlow
         </h1>
-        <span className="text-[10px] font-bold tracking-wider text-sky-400 uppercase">
+        <span className="text-[10px] font-bold tracking-wider text-sky-600 dark:text-sky-400 uppercase">
           Workspace Pro
         </span>
       </div>
@@ -28,7 +28,7 @@ const SidebarContent = ({ menus, setSidebarOpen }) => (
 
     {/* Navigation Menu Links */}
     <div className="flex-1 px-4 py-6 overflow-y-auto">
-      <p className="px-3 text-[11px] font-bold text-sky-400/80 uppercase tracking-widest mb-3">
+      <p className="px-3 text-[11px] font-bold text-sky-600 dark:text-sky-400/80 uppercase tracking-widest mb-3">
         Main Menu
       </p>
 
@@ -52,7 +52,7 @@ const SidebarContent = ({ menus, setSidebarOpen }) => (
               ${
                 isActive
                   ? "bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 text-white shadow-lg shadow-sky-500/25 translate-x-1 border border-sky-400/20"
-                  : "text-slate-400 hover:bg-sky-950/40 hover:text-sky-300 hover:border-sky-500/20 border border-transparent"
+                  : "text-slate-600 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-200 dark:text-slate-400 dark:hover:bg-sky-950/40 dark:hover:text-sky-300 dark:hover:border-sky-500/20 border border-transparent"
               }
               `
             }
@@ -66,14 +66,8 @@ const SidebarContent = ({ menus, setSidebarOpen }) => (
         ))}
       </nav>
     </div>
-
-    {/* Footer Info with Sky Blue Accent */}
-    {/* <div className="p-3.5 mx-4 mb-4 rounded-xl bg-sky-950/30 border border-sky-900/40 text-center">
-      <p className="text-xs font-bold text-sky-300">TaskFlow Workspace</p>
-      <p className="text-[10px] text-sky-400/70 mt-0.5 font-medium">Version 1.0 • Pro Theme</p>
-    </div>
-  </div> */}
-</div>);
+  </div>
+);
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const menus = [
@@ -109,7 +103,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       {/* Mobile Backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-40 md:hidden"
+          className="fixed inset-0 bg-slate-950/40 dark:bg-slate-950/60 backdrop-blur-xs z-40 md:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}

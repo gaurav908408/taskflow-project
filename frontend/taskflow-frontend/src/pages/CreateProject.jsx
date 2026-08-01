@@ -35,15 +35,15 @@ const CreateProject = () => {
 
   return (
     <Layout>
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-10">
+      <div className="max-w-2xl mx-auto bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-lg p-6 sm:p-10">
 
         {/* Heading */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100">
             🚀 Create Project
           </h1>
 
-          <p className="mt-2 text-gray-500 text-base">
+          <p className="mt-2 text-slate-500 dark:text-slate-400 text-base">
             Create your project and start managing your tasks.
           </p>
         </div>
@@ -52,7 +52,7 @@ const CreateProject = () => {
 
           {/* Project Name */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
               Project Name *
             </label>
 
@@ -63,13 +63,13 @@ const CreateProject = () => {
               onChange={handleChange}
               placeholder="Enter project name"
               required
-              className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
             />
           </div>
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
               Description
             </label>
 
@@ -79,7 +79,7 @@ const CreateProject = () => {
               value={formData.description}
               onChange={handleChange}
               placeholder="Write something about your project..."
-              className="w-full rounded-xl border border-gray-300 p-4 text-base resize-none outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 p-4 text-base resize-none outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
             />
           </div>
 
@@ -95,7 +95,7 @@ const CreateProject = () => {
             <button
               type="button"
               onClick={() => navigate("/projects")}
-              className="flex-1 h-12 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-base font-semibold transition"
+              className="flex-1 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-base font-semibold transition"
             >
               Cancel
             </button>

@@ -28,7 +28,7 @@ const StatCard = ({ title, value, icon, color, trend }) => {
     >
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-300 uppercase tracking-wider">
             {title}
           </span>
           <h2 className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">

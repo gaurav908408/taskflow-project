@@ -94,7 +94,7 @@ const Kanban = () => {
       <div className="w-full space-y-6">
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <h1 className="text-3xl font-bold text-gray-800">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
               Kanban Board
             </h1>
 

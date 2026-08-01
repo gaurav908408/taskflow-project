@@ -79,15 +79,15 @@ const CreateTask = () => {
 
   return (
     <Layout>
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-10">
-        <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">
+      <div className="max-w-2xl mx-auto bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-lg p-6 sm:p-10">
+        <h1 className="text-3xl font-extrabold text-center text-slate-900 dark:text-slate-100 mb-8">
           📌 Create Task
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
               Task Title *
             </label>
             <input
@@ -96,13 +96,13 @@ const CreateTask = () => {
               placeholder="Enter task title"
               value={formData.title}
               onChange={handleChange}
-              className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
               Task Description *
             </label>
             <textarea
@@ -111,20 +111,20 @@ const CreateTask = () => {
               rows="4"
               value={formData.description}
               onChange={handleChange}
-              className="w-full rounded-xl border border-gray-300 p-4 text-base resize-none outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 p-4 text-base resize-none outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
               Select Project *
             </label>
             <select
               name="projectId"
               value={formData.projectId}
               onChange={handleChange}
-              className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
               required
             >
               <option value="">Select Project</option>
@@ -140,14 +140,14 @@ const CreateTask = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                 Status
               </label>
               <select
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
               >
                 <option value="Todo">Todo</option>
                 <option value="In Progress">In Progress</option>
@@ -156,14 +156,14 @@ const CreateTask = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                 Priority
               </label>
               <select
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}
-                className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
               >
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
@@ -172,7 +172,7 @@ const CreateTask = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                 Due Date *
               </label>
               <input
@@ -180,7 +180,7 @@ const CreateTask = () => {
                 name="dueDate"
                 value={formData.dueDate}
                 onChange={handleChange}
-                className="w-full h-12 rounded-xl border border-gray-300 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 text-base outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
                 required
               />
             </div>
@@ -199,7 +199,7 @@ const CreateTask = () => {
             <button
               type="button"
               onClick={() => navigate("/tasks")}
-              className="flex-1 h-12 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold transition"
+              className="flex-1 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold transition"
             >
               Cancel
             </button>

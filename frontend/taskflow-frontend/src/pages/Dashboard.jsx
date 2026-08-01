@@ -129,7 +129,7 @@ const Dashboard = () => {
         {/* Dashboard Heading */}
         <div className="flex items-center justify-between pt-2">
 
-          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
             📊 Dashboard Overview
           </h2>
            

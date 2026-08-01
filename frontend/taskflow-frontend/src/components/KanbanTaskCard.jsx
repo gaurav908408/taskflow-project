@@ -8,9 +8,9 @@ const KanbanTaskCard = ({
   onDelete,
 }) => {
   const priorityColor = {
-    High: "bg-red-100 text-red-700",
-    Medium: "bg-orange-100 text-orange-700",
-    Low: "bg-blue-100 text-blue-700",
+    High: "bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/50",
+    Medium: "bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/50",
+    Low: "bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/50",
   };
 
   return (
