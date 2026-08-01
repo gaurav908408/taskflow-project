@@ -1,133 +1,213 @@
-# 🚀 TaskFlow – Full Stack Project Management System
+# 🚀 TaskFlow - Full Stack Project Management System
 
-> A modern and responsive **Project Management System** built with **React, Express.js, MongoDB, and JWT Authentication**. Manage projects, organize tasks, upload profile images, and track progress through a clean dashboard with **Dark & Light Mode** support.
+<p align="center">
 
----
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?logo=mongodb)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-UI-38BDF8?logo=tailwind-css)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-## 🌐 Live Demo
+</p>
 
-🚀 **Live Website:** [https://taskflow-project-lovat.vercel.app/](https://taskflow-project-lovat.vercel.app/)
-
-💻 **GitHub Repository:** [https://github.com/gaurav908408](https://github.com/gaurav908408)
-
----
-
-## ✨ Features
-
-### 🔐 Authentication
-* User Registration & Login
-* JWT Authentication & Protected Routes
-* Secure Logout
-
-### 👤 User Profile
-* View Profile Details & Account Info
-* Upload & Update Profile Picture (Multer Integration)
-
-### 📁 Project Management
-* Create, View, Edit & Delete Projects
-* Project Overview & Description
-
-### ✅ Task Management
-* Create, View, Edit & Delete Tasks
-* Assign Tasks to Specific Projects
-* Drag & Drop Kanban Board Integration
-
-### 📊 Dashboard
-* Real-time Project & Task Counters (Total Projects, Total Tasks, Completed, Pending)
-* Welcome Greeting Section & Live Date & Time Tracker
-
-### 🔍 Search & Filters
-* Real-time Task Search
-* Filter by Status (*Todo, In Progress, Done*)
-* Filter by Priority (*Low, Medium, High*)
-* Page Pagination Support
-
-### 🎨 Modern UI & Themes
-* Dynamic **Dark Mode / Light Mode** Switch
-* Fully Responsive Desktop & Mobile Layouts
-* Loading Spinners & Toast Notifications
-* Smooth Animations & Hover Effects
+> A modern and responsive **Project Management System** built using **React.js, Express.js, MongoDB, and JWT Authentication**. Manage projects, organize tasks, upload profile pictures, and track progress with a beautiful dashboard supporting **Dark & Light Mode**.
 
 ---
 
-## 🛠 Tech Stack
+# 🌐 Live Demo
 
-### Frontend
-* **Core:** React.js, React Router DOM, Context API
-* **Styling:** Tailwind CSS, React Icons
-* **HTTP & Notifications:** Axios, React Hot Toast
+🚀 **Website**
 
-### Backend
-* **Server Framework:** Node.js, Express.js
-* **Database:** MongoDB, Mongoose ORM
-* **Auth & Security:** JWT Authentication, bcryptjs
-* **File Storage:** Multer
+https://taskflow-project-lovat.vercel.app/
+
+💻 **GitHub Repository**
+
+https://github.com/gaurav908408/taskflow-project
 
 ---
 
-## 📸 Project Screenshots
+# 📑 Table of Contents
 
-### 🌗 Dark Mode vs Light Mode (Same Page Comparison)
-| 🌙 Dark Mode | ☀️ Light Mode |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/cfa5a234-0b30-4e3a-802e-a4975e839136" width="100%"/> | <img src="https://github.com/user-attachments/assets/11d9e202-ed96-475c-a5ca-bdabd4a3985d" width="100%"/> |
-
----
-
-### 📊 Dashboard & Home
-| 🏠 Home Page | 📊 Dashboard Overview |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/85fccc5f-43eb-40b4-9bb6-4ddd2431101f" width="100%"/> | <img src="https://github.com/user-attachments/assets/22d211f4-cfdc-4b51-b8c4-ff5a80d3416a" width="100%"/> |
-
----
-
-### 🔐 Authentication Pages
-| 🔐 Login Page | 📝 Register Page |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/8a868083-c1f1-48bb-8afa-233aa3573723" width="100%"/> | <img src="https://github.com/user-attachments/assets/d9e8e163-dad7-4078-90d4-64d393a8bc74" width="100%"/> |
+- Features
+- Tech Stack
+- Screenshots
+- Folder Structure
+- Installation
+- Environment Variables
+- API Endpoints
+- Deployment
+- Future Improvements
+- Author
 
 ---
 
-### 📁 Project Management
-| 📁 All Projects | ➕ Create Project |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/4b5fea4e-a8f9-4d7c-8a36-a92a526cdee6" width="100%"/> | <img src="https://github.com/user-attachments/assets/5933401d-55d1-494d-a652-e2c3d2837827" width="100%"/> |
+# ✨ Features
+
+## 🔐 Authentication
+
+- User Registration
+- User Login
+- JWT Authentication
+- Protected Routes
+- Secure Logout
 
 ---
 
-### ✅ Task Management
-| ✅ Task Management | ➕ Create Task |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/43f6ee48-5210-4c49-93f7-769429053985" width="100%"/> | <img src="https://github.com/user-attachments/assets/f5d52aab-27e2-443d-b597-1eb4ce8faeb4" width="100%"/> |
+## 👤 User Profile
+
+- View User Profile
+- Update Account Information
+- Upload Profile Picture
+- Multer Image Upload Integration
 
 ---
 
-### 👤 User Profile
-| 👤 Profile View | ✏️ Profile Details & Update |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/ae2c08f3-b1a5-42b1-a79b-031ddb3b1d74" width="100%"/> | <img src="https://github.com/user-attachments/assets/4cf19199-718b-4581-9a9e-415dd146f9a6" width="100%"/> |
+## 📁 Project Management
+
+- Create Projects
+- View Projects
+- Edit Projects
+- Delete Projects
+- Project Description
 
 ---
 
-## 📂 Folder Structure
+## ✅ Task Management
+
+- Create Tasks
+- Update Tasks
+- Delete Tasks
+- Assign Tasks to Projects
+- Drag & Drop Kanban Board
+
+---
+
+## 📊 Dashboard
+
+- Total Projects Counter
+- Total Tasks Counter
+- Completed Tasks
+- Pending Tasks
+- Welcome Section
+- Live Date & Time
+
+---
+
+## 🔍 Search & Filters
+
+- Search Tasks
+- Filter by Status
+- Filter by Priority
+- Pagination Support
+
+---
+
+## 🎨 Modern UI
+
+- Dark Mode
+- Light Mode
+- Responsive Design
+- Toast Notifications
+- Loading Spinner
+- Smooth Animations
+- Hover Effects
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- React Router DOM
+- Context API
+- Tailwind CSS
+- Axios
+- React Icons
+- React Hot Toast
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcryptjs
+- Multer
+
+---
+
+# 📸 Screenshots
+
+## 📝 Register
+
+<img width="100%" src="https://github.com/user-attachments/assets/39d82e4f-d2f4-4894-9e4d-221fb833e95b"/>
+
+---
+
+## 🔑 Login
+
+<img width="100%" src="https://github.com/user-attachments/assets/b892ceda-4d66-475e-a0b8-8252fbd69d07"/>
+
+---
+
+## 📊 Dashboard
+
+<img width="100%" src="https://github.com/user-attachments/assets/344a3624-ac4e-4ffc-9d62-9ee654ef8340"/>
+
+---
+
+## 📁 Projects
+
+<img width="100%" src="https://github.com/user-attachments/assets/a5d5cac5-0bf2-4530-8dea-a03752b60dec"/>
+
+---
+
+## ✅ Tasks
+
+<img width="100%" src="https://github.com/user-attachments/assets/aaa60800-f8a6-4161-9b84-377728683c9c"/>
+
+---
+
+## 📌 Kanban Board
+
+<img width="100%" src="https://github.com/user-attachments/assets/110afcd0-6207-4482-9f95-e963debe8a81"/>
+
+---
+
+## 👤 Profile
+
+<img width="100%" src="https://github.com/user-attachments/assets/aaaf978d-0cc1-45b0-b145-c9f20cbf94a3"/>
+
+---
+
+# 📂 Folder Structure
 
 ```text
-TaskFlow/
+TaskFlow
 │
-├── frontend/          # React.js Frontend Application
-│   └── taskflow-frontend/
-│       ├── src/
-│       │   ├── components/
-│       │   ├── context/
-│       │   ├── pages/
-│       │   └── services/
+├── backend
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── uploads
+│   ├── server.js
+│   └── package.json
+│
+├── frontend
+│   └── taskflow-frontend
+│       ├── public
+│       ├── src
+│       │   ├── assets
+│       │   ├── components
+│       │   ├── context
+│       │   ├── pages
+│       │   ├── services
+│       │   └── App.jsx
 │       └── package.json
-│
-├── backend/           # Express.js REST API Server
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   └── server.js
 │
 ├── README.md
 └── .gitignore
@@ -135,82 +215,152 @@ TaskFlow/
 
 ---
 
-## ⚙️ Installation & Setup
+# ⚙️ Installation
 
-### 1. Clone Repository
+## Clone Repository
+
 ```bash
 git clone https://github.com/gaurav908408/taskflow-project.git
+```
+
+```bash
 cd taskflow-project
 ```
 
-### 2. Backend Setup
+---
+
+## Backend
+
 ```bash
 cd backend
-npm install
-npm run dev
 ```
 
-### 3. Frontend Setup
 ```bash
-cd frontend/taskflow-frontend
 npm install
+```
+
+```bash
 npm run dev
 ```
 
 ---
 
-## 🔐 Environment Variables
+## Frontend
 
-Create a `.env` file inside the `backend` folder:
+```bash
+cd frontend/taskflow-frontend
+```
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+---
+
+# 🔐 Environment Variables
+
+Create a `.env` file inside the **backend** folder.
 
 ```env
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_secret_key
+
 NODE_ENV=development
 ```
 
 ---
 
-## 📡 API Endpoints
+# 📡 API Endpoints
 
-### 🔐 Authentication
-* `POST /api/auth/register` - Register a new user
-* `POST /api/auth/login` - User login
-* `GET /api/auth/me` - Get current user profile
+## Authentication
 
-### 📁 Projects
-* `GET /api/projects` - Get all user projects
-* `POST /api/projects` - Create a new project
-* `PUT /api/projects/:id` - Update project details
-* `DELETE /api/projects/:id` - Delete a project
-
-### ✅ Tasks
-* `GET /api/tasks` - Get all tasks (with search, filter & pagination)
-* `POST /api/tasks` - Create a new task
-* `PUT /api/tasks/:id` - Update task details
-* `DELETE /api/tasks/:id` - Delete a task
+| Method | Endpoint | Description |
+|----------|----------------------|---------------------|
+| POST | /api/auth/register | Register User |
+| POST | /api/auth/login | Login User |
+| GET | /api/auth/me | Current User |
 
 ---
 
-## 🚀 Future Improvements
+## Projects
 
-* 👥 Team Collaboration & Member Assignments
-* 💬 Task Comments & Discussion Threads
-* 📎 File Attachments
-* 📧 Email Notifications
-* ⏰ Due Date Reminders
+| Method | Endpoint | Description |
+|----------|----------------------|----------------|
+| GET | /api/projects | Get Projects |
+| POST | /api/projects | Create Project |
+| PUT | /api/projects/:id | Update Project |
+| DELETE | /api/projects/:id | Delete Project |
 
 ---
 
-## 👨‍💻 Author
+## Tasks
+
+| Method | Endpoint | Description |
+|----------|---------------------|----------------|
+| GET | /api/tasks | Get Tasks |
+| POST | /api/tasks | Create Task |
+| PUT | /api/tasks/:id | Update Task |
+| DELETE | /api/tasks/:id | Delete Task |
+
+---
+
+# 🚀 Deployment
+
+| Service | Platform |
+|----------|----------|
+| Frontend | Vercel |
+| Backend | Render |
+| Database | MongoDB Atlas |
+
+---
+
+# 🔮 Future Improvements
+
+- Team Collaboration
+- Role Based Access
+- File Attachments
+- Email Notifications
+- Task Comments
+- Activity Logs
+- Due Date Reminders
+- Calendar View
+- Project Analytics
+
+---
+
+# 👨‍💻 Author
 
 **Gaurav Kaushik**
-* **GitHub:** [gaurav908408](https://github.com/gaurav908408)
-* **Live Demo:** [TaskFlow App](https://taskflow-project-lovat.vercel.app/)
+
+GitHub
+
+https://github.com/gaurav908408
+
+Live Demo
+
+https://taskflow-project-lovat.vercel.app/
 
 ---
 
-## ⭐ Support
+# 🤝 Contributing
 
-If you found this project helpful, don't forget to **⭐ Star** the repository! Your support is greatly appreciated! 🚀
+Contributions are welcome.
+
+Fork this repository, create a new branch, make your changes, and submit a Pull Request.
+
+---
+
+# ⭐ Support
+
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
+
+It helps the project grow and motivates future improvements.
+
+---
