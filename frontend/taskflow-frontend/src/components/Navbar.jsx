@@ -37,11 +37,16 @@ const Navbar = ({ setSidebarOpen }) => {
   };
 
   const initial = user?.name ? user.name.charAt(0).toUpperCase() : "U";
+  const avatarSrc = user?.avatarUrl
+    ? user.avatarUrl.startsWith("http")
+      ? user.avatarUrl
+      : `http://localhost:5000${user.avatarUrl}`
+    : null;
 
   return (
     <header className="h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-20 px-6 sm:px-12 lg:px-16 flex items-center justify-between transition-colors duration-300">
 
-      {/* Mobile Toggle & Brand Indicator */}
+      {/* Mobile Toggle */}
       <div className="flex items-center gap-3">
         <button
           className="md:hidden text-lg text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition"
@@ -49,11 +54,6 @@ const Navbar = ({ setSidebarOpen }) => {
         >
           <FaBars />
         </button>
-
-        <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700">
-          <FaShieldAlt className="text-emerald-600 dark:text-emerald-400" />
-          <span>Active Session</span>
-        </div>
       </div>
 
       {/* Right User Navigation */}
@@ -74,8 +74,12 @@ const Navbar = ({ setSidebarOpen }) => {
 
         {/* User Profile Badge */}
         <div className="flex items-center gap-3 pl-3 border-l border-slate-200 dark:border-slate-800">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold text-sm flex items-center justify-center shadow-xs">
-            {initial}
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold text-sm flex items-center justify-center shadow-xs overflow-hidden">
+            {avatarSrc ? (
+              <img src={avatarSrc} alt="Profile" className="w-full h-full object-cover" />
+            ) : (
+              initial
+            )}
           </div>
 
           <div className="hidden sm:block text-left">

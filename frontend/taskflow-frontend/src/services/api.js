@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Automatically detect environment
+// Dynamically target local development API or production cloud backend
 const API = axios.create({
   baseURL:
     window.location.hostname === "localhost"
@@ -8,8 +8,7 @@ const API = axios.create({
       : "https://taskflow-backend-ytng.onrender.com/api",
 });
 
-// ================= TOKEN =================
-
+// Attach authorization bearer token from local storage to outgoing HTTP requests
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
@@ -20,8 +19,7 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// ================= AUTH =================
-
+// Authentication & Profile API Endpoints
 export const registerUser = (data) =>
   API.post("/auth/register", data);
 
@@ -31,16 +29,21 @@ export const loginUser = (data) =>
 export const getMe = () =>
   API.get("/auth/me");
 
-// JWT Logout (Frontend Only)
+export const uploadProfilePicture = (formData) =>
+  API.post("/auth/profile-picture", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+// Client-side logout helper
 export const logoutUser = () => Promise.resolve();
 
-// ================= DASHBOARD =================
-
+// Dashboard Analytics API Endpoint
 export const getDashboard = () =>
   API.get("/dashboard");
 
-// ================= PROJECTS =================
-
+// Project Management CRUD Operations
 export const getProjects = () =>
   API.get("/projects");
 
@@ -56,8 +59,7 @@ export const updateProject = (id, data) =>
 export const deleteProject = (id) =>
   API.delete(`/projects/${id}`);
 
-// ================= TASKS =================
-
+// Task Management & Kanban Drag-and-Drop Operations
 export const getTasks = (params = {}) =>
   API.get("/tasks", { params });
 
@@ -70,7 +72,7 @@ export const createTask = (data) =>
 export const updateTask = (id, data) =>
   API.put(`/tasks/${id}`, data);
 
-// Kanban Status Update
+// Updates task status pill when dragged across Kanban columns
 export const updateTaskStatus = (id, status) =>
   API.patch(`/tasks/${id}/status`, { status });
 

@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
+const path = require("path");
+
 const connectDB = require("./config/db");
 
 // Routes
@@ -24,6 +26,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve Uploads Directory Statically
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Home Route
 app.get("/", (req, res) => {

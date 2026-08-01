@@ -64,6 +64,11 @@ const { data } = await getMe();
     toast.success("Logged Out Successfully");
   };
 
+  // Update User state globally
+  const updateUser = (updatedUserData) => {
+    setUser((prev) => (prev ? { ...prev, ...updatedUserData } : updatedUserData));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -72,6 +77,7 @@ const { data } = await getMe();
         login,
         logout,
         loadUser,
+        updateUser,
         isAuthenticated: !!user,
       }}
     >

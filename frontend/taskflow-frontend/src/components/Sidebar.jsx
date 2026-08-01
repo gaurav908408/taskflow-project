@@ -68,12 +68,12 @@ const SidebarContent = ({ menus, setSidebarOpen }) => (
     </div>
 
     {/* Footer Info with Sky Blue Accent */}
-    <div className="p-3.5 mx-4 mb-4 rounded-xl bg-sky-950/30 border border-sky-900/40 text-center">
+    {/* <div className="p-3.5 mx-4 mb-4 rounded-xl bg-sky-950/30 border border-sky-900/40 text-center">
       <p className="text-xs font-bold text-sky-300">TaskFlow Workspace</p>
       <p className="text-[10px] text-sky-400/70 mt-0.5 font-medium">Version 1.0 • Pro Theme</p>
     </div>
-  </div>
-);
+  </div> */}
+</div>);
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const menus = [

@@ -58,13 +58,6 @@ const StatCard = ({ title, value, icon, color, trend }) => {
           {icon}
         </div>
       </div>
-
-      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
-        <span>Active Metric</span>
-        <span className="text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/60 group-hover:bg-emerald-600 group-hover:text-white dark:group-hover:bg-emerald-500 dark:group-hover:text-slate-950 px-2 py-0.5 rounded-md transition-colors duration-300">
-          {trend || "Updated live"}
-        </span>
-      </div>
     </div>
   );
 };
