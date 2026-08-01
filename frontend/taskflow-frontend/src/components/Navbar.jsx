@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import {
   FaSignOutAlt,
   FaBars,
-  FaShieldAlt,
   FaSun,
   FaMoon,
 } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
+import Avatar from "./Avatar";
 
 const Navbar = ({ setSidebarOpen }) => {
   const { user, logout } = useAuth();
@@ -35,13 +35,6 @@ const Navbar = ({ setSidebarOpen }) => {
     await logout();
     navigate("/login");
   };
-
-  const initial = user?.name ? user.name.charAt(0).toUpperCase() : "U";
-  const avatarSrc = user?.avatarUrl
-    ? user.avatarUrl.startsWith("http")
-      ? user.avatarUrl
-      : `http://localhost:5000${user.avatarUrl}`
-    : null;
 
   return (
     <header className="h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-20 px-6 sm:px-12 lg:px-16 flex items-center justify-between transition-colors duration-300">
@@ -74,13 +67,7 @@ const Navbar = ({ setSidebarOpen }) => {
 
         {/* User Profile Badge */}
         <div className="flex items-center gap-3 pl-3 border-l border-slate-200 dark:border-slate-800">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold text-sm flex items-center justify-center shadow-xs overflow-hidden">
-            {avatarSrc ? (
-              <img src={avatarSrc} alt="Profile" className="w-full h-full object-cover" />
-            ) : (
-              initial
-            )}
-          </div>
+          <Avatar user={user} sizeClass="w-9 h-9 text-sm" roundedClass="rounded-xl" />
 
           <div className="hidden sm:block text-left">
             <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 leading-none">
