@@ -67,28 +67,43 @@
 
 ## 📸 Project Screenshots
 
-### 🏠 Dashboard & Theme Modes
-| 🌙 Dark Mode Dashboard | ☀️ Light Mode Theme |
+### 🌗 Dark Mode vs Light Mode (Same Page Comparison)
+| 🌙 Dark Mode | ☀️ Light Mode |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/22d211f4-cfdc-4b51-b8c4-ff5a80d3416a" width="100%"/> | <img src="https://github.com/user-attachments/assets/11d9e202-ed96-475c-a5ca-bdabd4a3985d" width="100%"/> |
+| <img src="https://github.com/user-attachments/assets/cfa5a234-0b30-4e3a-802e-a4975e839136" width="100%"/> | <img src="https://github.com/user-attachments/assets/11d9e202-ed96-475c-a5ca-bdabd4a3985d" width="100%"/> |
+
+---
+
+### 📊 Dashboard & Home
+| 🏠 Home Page | 📊 Dashboard Overview |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/85fccc5f-43eb-40b4-9bb6-4ddd2431101f" width="100%"/> | <img src="https://github.com/user-attachments/assets/22d211f4-cfdc-4b51-b8c4-ff5a80d3416a" width="100%"/> |
+
+---
 
 ### 🔐 Authentication Pages
 | 🔐 Login Page | 📝 Register Page |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/8a868083-c1f1-48bb-8afa-233aa3573723" width="100%"/> | <img src="https://github.com/user-attachments/assets/d9e8e163-dad7-4078-90d4-64d393a8bc74" width="100%"/> |
 
+---
+
 ### 📁 Project Management
 | 📁 All Projects | ➕ Create Project |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/4b5fea4e-a8f9-4d7c-8a36-a92a526cdee6" width="100%"/> | <img src="https://github.com/user-attachments/assets/5933401d-55d1-494d-a652-e2c3d2837827" width="100%"/> |
+
+---
 
 ### ✅ Task Management
 | ✅ Task Management | ➕ Create Task |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/43f6ee48-5210-4c49-93f7-769429053985" width="100%"/> | <img src="https://github.com/user-attachments/assets/f5d52aab-27e2-443d-b597-1eb4ce8faeb4" width="100%"/> |
 
+---
+
 ### 👤 User Profile
-| 👤 Profile View | ✏️ Profile Details |
+| 👤 Profile View | ✏️ Profile Details & Update |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/ae2c08f3-b1a5-42b1-a79b-031ddb3b1d74" width="100%"/> | <img src="https://github.com/user-attachments/assets/4cf19199-718b-4581-9a9e-415dd146f9a6" width="100%"/> |
 
